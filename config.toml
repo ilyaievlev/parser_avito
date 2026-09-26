@@ -3,18 +3,34 @@ tg_token = ""
 tg_chat_id = []
 vk_token = ""
 vk_user_id = []
+
+# ==============================================================================
+# Поля ниже подгружаются из основного .env проекта:
+#   - urls:             $AVITO_URLS (или $AVITO_URL)
+#   - use_bypass_api:   $AVITO_USE_BYPASS_API
+#   - cookies_api_key:  $AVITO_COOKIES_API_KEY
+#   - proxy_string:     $AVITO_PROXY_STRING
+#   - count:            $AVITO_COUNT
+# ==============================================================================
 urls = [
-    "https://www.avito.ru/all/gruzoviki_i_spetstehnika/buldozery-ASgBAgICAURU3E0?cd=1",
-    "https://www.avito.ru/krasnodar/telefony/mobilnye_telefony/apple/iphone_16-ASgBAgICA0SywA3GsYwVtMANzqs5sMENiPw3?cd=1",
+    "${AVITO_URLS:-https://www.avito.ru/moskva/kvartiry/sdam/na_dlitelnyy_srok-ASgBAgICAkSSA8gQ8AeQUg?cd=2&context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InRCTlVOYnNSbTFNZklYdlQiO30ID_1RJgAAAA&localPriority=0}",
 ]
-count = 1
+one_time_start = false
+
+use_bypass_api = "${AVITO_USE_BYPASS_API:-true}"
+cookies_api_key = "${AVITO_COOKIES_API_KEY:-}"
+
+proxy_string = "${AVITO_PROXY_STRING:-}"
+
+count = "${AVITO_COUNT:-10}"
+save_xlsx = false
+
 keys_word_white_list = []
 keys_word_black_list = []
 seller_black_list = []
 max_price = 99999999
 min_price = 0
 geo = ""
-proxy_string = ""
 proxy_change_url = ""
 pause_general = 1
 pause_between_links = 1
@@ -22,13 +38,9 @@ max_age = 0
 max_count_of_retry = 5
 ignore_reserv = true
 ignore_promotion = false
-one_time_start = false
 one_file_for_link = false
 parse_views = false
-save_xlsx = true
 use_webdriver = false
-use_bypass_api = false
-cookies_api_key = ""
 use_own_cookies = false
 parse_phone = false
 proxy_notifier = ""
